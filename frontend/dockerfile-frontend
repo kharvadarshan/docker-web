@@ -1,0 +1,14 @@
+FROM node:18-alpine
+
+ENV BACKEND_URL=http://0.0.0.0:5000
+
+
+WORKDIR /app
+COPY frontend/package.json .
+RUN npm install
+
+COPY frontend .
+
+ENTRYPOINT ["node"]
+
+CMD ["app.js"]
